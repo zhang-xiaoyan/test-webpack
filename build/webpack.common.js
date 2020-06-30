@@ -79,8 +79,7 @@ module.exports = {
             '@src': resolve('src'),
             '@api': resolve('src/api'),
             '@page': resolve('src/pages'),
-            '@router': resolve('src/router'),
-            '@store': resolve('src/store')
+            '@router': resolve('router')
         }
     },
     plugins: [

@@ -16,7 +16,7 @@ class AppRouter extends React.Component {
         return (
             <Router>
                 <Switch>
-                    <Route exact path='/' component={Index} />
+                    <Route exact path='/index' component={Index} />
                     <Route exact path='/list' component={List} />
                     <Route path='/' component={Index} />
                 </Switch>

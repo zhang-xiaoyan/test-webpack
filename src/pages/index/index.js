@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 export class Index extends React.Component {
     constructor(props) {
@@ -9,8 +10,12 @@ export class Index extends React.Component {
     }
     render() {
         const { num } = this.state;
+        const { indexText } = this.props;
         return(
-            <div onClick={this.addNum}>{num}</div>
+            <div>
+                <span onClick={this.addNum}>{ num }</span>
+                <p onClick={this.addDis}>{ indexText }</p>
+            </div>
         )
     }
     addNum =()=> {
@@ -18,6 +23,21 @@ export class Index extends React.Component {
             num: 2
         });
     }
+
+    addDis =()=> {
+        const { dispatch } = this.props;
+        dispatch({
+            type: 'change_text',
+            indexText: 'change index text'
+        });
+    }
 }
 
-export default Index;
+const select = (state) => {
+    const props = state.index;
+    return {
+        indexText: props.indexText
+    };
+};
+
+export default connect(select)(Index);
